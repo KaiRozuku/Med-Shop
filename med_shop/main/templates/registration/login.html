@@ -1,0 +1,116 @@
+<!--{% load static %}-->
+<!--<<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Document</title>-->
+<!--    <link rel="stylesheet" href="{% static 'main/css/reg-log.css' %}">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="overlay">-->
+<!--&lt;!&ndash; LOGN IN FORM by Omar Dsoky &ndash;&gt;-->
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--   &lt;!&ndash;   con = Container  for items in the form&ndash;&gt;-->
+<!--   <div class="con">-->
+<!--   &lt;!&ndash;     Start  header Content  &ndash;&gt;-->
+<!--   <header class="head-form">-->
+<!--      <h2>Увійти</h2>-->
+<!--      <p>Введіть логін та пароль</p>-->
+<!--   </header>-->
+<!--   <br>-->
+<!--   <div class="field-set">-->
+
+<!--         <span class="input-item">-->
+<!--           <i class="fa fa-user-circle"></i>-->
+<!--         </span>-->
+
+<!--         <input class="form-input" id="txt-input" type="text" name="username" placeholder="Логін" required>-->
+
+<!--      <br>-->
+
+<!--      <span class="input-item">-->
+<!--        <i class="fa fa-key"></i>-->
+<!--       </span>-->
+<!--        <input class="form-input" id="pwd"  name="password" required type="password" placeholder="Пароль">-->
+<!--      <br>-->
+<!--       <button  type="submit">-->
+<!--        <input class="log-in" type="submit" value="Увійти">-->
+<!--       </button>-->
+<!--   </div>-->
+
+<!--   <div class="other">-->
+<!--          <a class="btn submits frgt-pass" href="{% url 'register' %}">Реєстрація</a>-->
+<!--      <i class="fa fa-user-plus" aria-hidden="true"></i>-->
+<!--   </div>-->
+
+<!--  </div>-->
+<!--</form>-->
+<!--</div>-->
+<!--    <footer>-->
+<!--        <p>&copy; Київ, Україна, 2024<br>Всі права захищено</p>-->
+<!--    </footer>-->
+<!--</body>-->
+<!--</html>-->
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="ru">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Login</title>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h1>Вход на сайт</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    {% if error %}&ndash;&gt;-->
+<!--&lt;!&ndash;        <div style="color:red;">{{ error }}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;    {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;    <form method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;        {% csrf_token %}&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="text" name="username" placeholder="Логин">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="password" name="password" placeholder="Пароль">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="submit" value="Войти">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a href="{% url 'login' %}">Войти</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a href="{% url 'register' %}">Регистрация</a>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main/css/reg-log.css' %}">
+</head>
+<body>
+    <div class="overlay">
+        <!-- LOGIN FORM by Omar Dsoky -->
+        <form method="post">
+            {% csrf_token %}
+            <!-- Container for items in the form -->
+            <div class="con">
+                <!-- Start header Content -->
+                <header class="head-form">
+                    <h2>Увійти</h2>
+                    <p>Введіть логін та пароль</p>
+                </header>
+                <br>
+                <div class="field-set">
+                    <input class="form-input" type="text" name="username" placeholder="Логін" required>
+                    <br>
+                    <input class="form-input" name="password" required type="password" placeholder="Пароль">
+                    <br>
+                    <button type="submit" class="log-in">Увійти</button>
+                </div>
+                <div class="other">
+                    <a class="btn submits frgt-pass" href="{% url 'register' %}">Реєстрація</a>
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </div>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; Київ, Україна, 2024<br>Всі права захищено</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,179 @@
+.header {
+    position: relative;
+    margin-left: 22%;
+}
+
+img.m_p {
+    margin-top: 1%;
+    width: 100%;
+    height: 50%;
+    border-radius: 10px;
+    margin-right: 2%;
+    margin-left: -1%;
+}
+.header h1{
+  position: absolute;
+  font-size: 88px;
+  color: #fff;
+  bottom: 0;
+  margin-left: 8%;
+  margin-bottom:13%;
+  width: 100%;
+        font-weight: bolder;
+
+}
+
+.filter-button {
+    font-family: 'Arial Narrow', cursive;
+    background-color: rgba(39, 61, 12, 0.5);
+    padding-left: 40px;
+    padding-right: 40px;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    position: absolute;
+    right: 20px; /* Adjust this value to position the button as needed */
+    top: 20px; /* Adjust this value to position the button as needed */
+    z-index: 100; /* Ensure the button appears above other content */
+    margin-right: 15px;
+    margin-top: -10px;
+}
+
+.sidebar {
+    float: right;
+    margin-top: 60px; /* Adjust this value based on the button's height */
+}
+.filter {
+    margin-top: 7%;
+    position: absolute; /* Застосування абсолютного позиціонування */
+    top: 0;
+    right: 0;
+    border-radius: 5px;
+    width: 28%; /* Розмір фільтру */
+    background-color: rgba(66, 91, 38, 0.75); /* Колір фону */
+    padding: 20px; /* Опціональний відступ */
+    display: none; /* Початково ховаємо меню */
+    z-index: 999; /* Збільшення z-index для відображення поверх інших елементів */
+}
+
+.filter.open {
+    display: block; /* Відображаємо меню при класі "open" */
+}
+
+.filter h2, .filter li {
+    color: white;
+}
+.filter {
+    /* решта вашого коду */
+    display: none;
+}
+
+.filter.open {
+    display: block;
+}
+
+input[type="text"], input[type="search"], button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+}
+
+input[type="text"],input[type="search"] {
+    width: 950px; /* Ширина поля для введення */
+    margin-top: -4%;
+    margin-left: 3%;
+}
+
+button {
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: -5%;
+    margin-top: 1%;
+}
+
+.main-content{
+    position: relative;
+    margin-left: 22%;
+}
+.drugs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 7px; /* Adjust the gap between user cards */
+    margin-right: -3%;
+}
+
+.drug-card {
+    width: 15.5%;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: left;
+    transition: transform 0.3s ease; /* Додайте плавну анімацію перетворення */
+}
+
+.drug-card a{
+    width: 200px; /* Задаем ширину контейнера */
+    height: 40px;
+    word-wrap: break-word; /* Перенос слов по мере необходимости */
+    text-align: left;
+    padding-left: 15px;
+    transition: transform .6s ease;
+    font-size: 16px;
+    color: #252537;
+    text-decoration: none;
+    padding-top: -5px;
+
+}
+.drug-card img {
+    align-items: center;
+}
+.drug-card a p {
+    line-height: 1.2;
+}
+.drug-card:hover{
+    transform: scale(1.05); /* Збільшуємо масштаб картки на 5% при наведенні */
+}
+
+.image{
+    width: 160px;
+    height: 100px;
+}
+.res{
+    font-size: 32px;
+    padding-top: 5%;
+    padding-left: 25%;
+}
+#add_b{
+    margin-left: 4%;
+}
+
+.drug-card p{
+    line-height: 1.2;
+}
+
+.add-to-cart{
+    float: right;
+    margin-top: 2%;
+    margin-right: 4%;
+    padding-right: -15%;
+}
+.categories a{
+    text-decoration: none;
+    color: #1e4927;
+    padding-left: 4px;
+    padding-right: 10px;
+    font-size: 20px;
+}
+.categories{
+    display: flex;
+    margin-left: 2%;
+}
+select[name="sort"] {
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 5px;
+}

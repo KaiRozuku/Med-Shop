@@ -1,0 +1,81 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %} Головна {% endblock %}
+{% block import_static %}
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <script src="{% static 'main/js/scripts.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="header">
+        <h1>Бронюй ліки швидко</h1>
+        <img class="m_p" src="{% static 'main/img/spoon2.jpg' %}" alt="Логотип">
+    </div>
+
+    <div class="main-content">
+        <div class="sidebar">
+            <button id="filter-button" class="filter-button"><i class="fa-solid fa-chevron-down" onclick="toggleFilter()">Фільтр</i></button>
+        </div>
+        <!-- Центральний контент тут -->
+        <form action="{% url 'search' %}" method="get">
+            <input type="search" name="search" placeholder="Введіть назву ліків">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div class="categories">
+            <h4><b>Категорії:</b></h4>
+            <a href="{% url 'home' %}">Всі</a>
+            {% for category in categories %}
+                <a href="{% url 'category' category.id %}">
+                    {{ category.name }} /
+                </a>
+            {% endfor %}
+        </div>
+        <div class="drugs-container">
+            {% if drugs %}
+                {% for el in drugs %}
+                    <div class="drug-card">
+                        <form class="cart-form" action="{% url 'cart-add' el.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </form>
+                        <a href="{% url 'drug-detail' el.id %}">
+                            <img class="image" src="{{ el.image.url }}">
+                            <p>{{ el.name }}</p>
+                            <p><b>{{ el.price }} грн.</b></p>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="res">Товари за запитом <b>{{ search }}</b> не знайдено.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var forms = document.querySelectorAll('.cart-form');
+            forms.forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    {% if not request.user.is_authenticated %}
+                        event.preventDefault();
+                        window.location.href = "{% url 'login' %}";
+                    {% endif %}
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            var filterButton = document.getElementById('filter-button');
+            var filter = document.querySelector('.filter');
+
+            filterButton.addEventListener('click', function() {
+                filter.classList.toggle('open');
+            });
+
+            function toggleFilter() {
+                var filter = document.getElementById('filter');
+                filter.classList.toggle('open');
+            }
+        });
+    </script>
+{% endblock %}

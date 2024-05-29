@@ -1,0 +1,52 @@
+.drugs-container{
+    padding-top: 4%;
+}
+.main-text{
+    padding-top: 1%;
+    background-color: #1e4927;
+    padding-bottom: 1%;
+}
+
+.main-text h1{
+    color: #fff;
+    text-align: center;
+    margin-left: 16%;
+    font-size: 48px;
+}
+.drug-card form button {
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 4%;
+    padding-left: 8%;
+    margin-top: 1%;
+}
+
+.empty-cart-message{
+    margin-top: 20%;
+    text-align: center;
+    color: rgba(30, 73, 39, 0.66);
+    font-size: 88px;
+}
+
+#add{
+    float: right;
+    margin-top: 2%;
+    margin-right: 4%;
+    padding-right: -5%;
+}
+
+.final_count {
+    background-color: rgb(89, 140, 38);
+    color: #b7ec8b;
+    margin-left: -2.55%;
+    padding: 6px 15%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.final_count h3{
+    line-height: 1.2;
+}

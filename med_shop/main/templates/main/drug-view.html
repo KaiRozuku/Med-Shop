@@ -1,0 +1,82 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %} {{ drug.name }} {% endblock %}
+{% block import_static %}
+    <link rel="stylesheet" href="{% static 'main/css/detail-view.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="title_">
+        <h1><b>{{ drug.name }}</b></h1>
+    </div>
+<div class="product-container">
+    <div class="picture">
+       <img src="{{ drug.image.url }}" alt="{{ drug.name }}">
+    </div>
+    <div class="about_product">
+        <div class="product_info">
+            <h3><b>Виробник:</b> {{ drug.developer }}</h3>
+            <h3><b>Призначення:</b> {{ drug.appointment }}</h3>
+            <h3><b>Од.вимірювання:</b> {{ drug.measurement }}</h3>
+            <h3><b>Ціна: {{ drug.price }} грн.</b></h3>
+        </div>
+        <div class="buttons">
+            <form id="cart-form" action="{% url 'cart-add' drug_id=drug.pk %}" method="post">
+                {% csrf_token %}
+                <button type="submit" id="cart_button"><i class="fa-solid fa-cart-shopping"></i>В кошик</button>
+            </form>
+            <form id="brown-form" action="{% url 'brown' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" style="height: 50px;">Бронювати</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <div class="detail_inform">
+        <h3>Про товар</h3>
+        <div class="about_product">
+            <h4>{{ drug.about_product|linebreaks }}</h4>
+        </div>
+        <h3>Показання</h3>
+        <div class="about_product">
+            <h4>{{ drug.indication|linebreaks }}</h4>
+        </div>
+        <h3>Протипоказання</h3>
+        <div class="about_product">
+            <h4>{{ drug.contraindication|linebreaks }}</h4>
+        </div>
+        <h3>Дозування</h3>
+        <div class="about_product">
+            <h4>{{ drug.dose|linebreaks }}</h4>
+        </div>
+    </div>
+    <h2>Вас також можуть зацікавити</h2>
+
+    <!-- Section for other products -->
+    <div class="drugs-container">
+        {% for other_drug in other_drugs %}
+            <div class="drug-card">
+                <form action="{% url 'cart-add' other_drug.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" id="add_b"><i class="fa-solid fa-cart-shopping"></i></button>
+                </form>
+                <a href="{% url 'drug-detail' other_drug.id %}">
+                    <img class="image" src="{{ other_drug.image.url }}">
+                    <p>{{ other_drug.name }}</p>
+                    <p><b>{{ other_drug.price }} грн.</b></p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        document.getElementById('cart-form').addEventListener('submit', function(event) {
+            {% if not request.user.is_authenticated %}
+                event.preventDefault();
+                window.location.href = "{% url 'login' %}";
+            {% endif %}
+        });
+    </script>
+
+{% endblock %}

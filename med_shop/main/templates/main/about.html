@@ -1,0 +1,36 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %} Про нас {% endblock %}
+{% block import_static %}
+    <link rel="stylesheet" href="{% static 'main/css/about.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="title_">
+       <img class="m_p" src="{% static 'main/img/about2.jpg' %}" alt="Логотип">
+            <h2> Наша команда пропонує широкий спектр послуг</h2>
+            <ul>
+                <li><div class="point">
+                    <i class="fa-solid fa-laptop-medical"></i><h2>Широкий вибір ліків</h2>
+                    <p> Від звичайних аптечних товарів до спеціалізованих препаратів.</p>
+                </div>
+                </li>
+                <li><div class="point">
+                    <i class="fa-brands fa-searchengin"></i><h2>Зручний пошук</h2>
+                    <p> Від звичайних аптечних товарів до спеціалізованих препаратів.</p>
+                </div>
+                </li>
+                <li><div class="point"><i class="fa-solid fa-credit-card"></i><h2>Безпечні платежі</h2>
+                    <p> Ми гарантуємо конфіденційність і безпеку вашої особистої інформації.</p>
+                </div>
+                </li>
+            </ul>
+
+    <div class="container_">
+        Ми віримо в те, що доступ до якісних ліків має бути легким і безпечним для кожного.
+        <br>Не соромтеся звертатися до нас у разі будь-яких питань або консультацій. Ми завжди готові допомогти!
+        <b>
+            З повагою, команда MyPharmacy.
+        </b>
+    </div>
+    </div>
+{% endblock %}

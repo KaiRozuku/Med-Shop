@@ -1,0 +1,38 @@
+aside{
+    margin-top: -5%;
+}
+
+.profile {
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 5% 10%;
+    margin-left: 40%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 5%;
+    text-align: center;
+    margin-bottom: 4%;
+}
+.form-control-file {
+    display: block;
+    width: 100%;
+}
+
+.form-control-file-label {
+    display: none; /* Приховати мітку */
+}
+
+.form-control-file-currently {
+    display: none; /* Приховати текст "Currently" */
+}
+
+
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: block;
+}
+
